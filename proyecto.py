@@ -124,7 +124,21 @@ def mostrar_vehiculos():
 
 
 def buscar_vehiculo():
-    pass
+
+    patente_buscada = input("Ingrese la patente a buscar: ")
+
+    for i in range(len(patentes)):
+
+        if patentes[i] == patente_buscada:
+
+            print("\nVehículo encontrado.")
+            print(f"Patente: {patentes[i]}")
+            print(f"Tipo: {tipos_vehiculos[i]}")
+            print(f"Hora de ingreso: {horas_entrada[i]}:{minutos_entrada[i]:02d}")
+
+            return
+
+    print("Vehículo no encontrado.")
 
 
 def mostrar_estadisticas():
