@@ -40,6 +40,7 @@ def mostrar_menu():
 
 def ingresar_vehiculo():
     global espacios_disp
+    global total_vehiculos_atendidos
     global cantidad_autos
     global cantidad_motos
     global cantidad_camiones
@@ -96,6 +97,7 @@ def ingresar_vehiculo():
     minutos_entrada.append(minuto)
 
     espacios_disp -= 1
+    total_vehiculos_atendidos += 1
 
     print("Vehículo ingresado correctamente.")
 
