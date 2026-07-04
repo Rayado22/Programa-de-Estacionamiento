@@ -40,15 +40,55 @@ def mostrar_menu():
 
 def ingresar_vehiculo():
     global espacios_disp
+    global cantidad_autos
+    global cantidad_motos
+    global cantidad_camiones
 
     if espacios_disp == 0:
         print("No hay espacios disponibles.")
         return
 
     patente = input("Ingrese la patente: ")
-    tipo = input("Ingrese el tipo de vehículo (Auto/Moto/Camión): ")
+
+    for p in patentes:
+        if p == patente:
+            print("Error: la patente ya está registrada.")
+            return
+
+    print("\nTipo de vehículo")
+    print("1. Moto")
+    print("2. Auto")
+    print("3. Camión")
+
+    opcion = int(input("Seleccione una opción: "))
+
+    if opcion == 1:
+        tipo = "Moto"
+        cantidad_motos += 1
+
+    elif opcion == 2:
+        tipo = "Auto"
+        cantidad_autos += 1
+
+    elif opcion == 3:
+        tipo = "Camión"
+        cantidad_camiones += 1
+
+    else:
+        print("Tipo de vehículo inválido.")
+        return
+
     hora = int(input("Ingrese la hora de ingreso: "))
+
+    while hora < 0 or hora > 23:
+        print("Hora inválida.")
+        hora = int(input("Ingrese nuevamente la hora: "))
+
     minuto = int(input("Ingrese el minuto de ingreso: "))
+
+    while minuto < 0 or minuto > 59:
+        print("Minuto inválido.")
+        minuto = int(input("Ingrese nuevamente el minuto: "))
 
     patentes.append(patente)
     tipos_vehiculos.append(tipo)
