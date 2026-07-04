@@ -49,12 +49,15 @@ def ingresar_vehiculo():
         print("No hay espacios disponibles.")
         return
 
-    patente = input("Ingrese la patente: ")
+    patente = input("Ingrese la patente: ").strip().upper()
 
-    for p in patentes:
-        if p == patente:
-            print("Error: la patente ya está registrada.")
-            return
+    while patente == "":
+        print("Error: la patente no puede estar vacía.")
+        patente = input("Ingrese nuevamente la patente: ").strip().upper()
+
+    if patente in patentes:
+        print("Error: la patente ya está registrada.")
+        return
 
     print("\nTipo de vehículo")
     print("1. Moto")
@@ -110,7 +113,11 @@ def retirar_vehiculo():
         print("No hay vehículos registrados para retirar.")
         return
 
-    patente = input("Ingrese la patente del vehículo a retirar: ")
+    patente = input("Ingrese la patente del vehículo a retirar: ").strip().upper()
+
+    while patente == "":
+        print("Error: la patente no puede estar vacía.")
+        patente = input("Ingrese nuevamente la patente: ").strip().upper()
 
     posicion = -1
 
@@ -202,7 +209,11 @@ def mostrar_vehiculos():
 
 def buscar_vehiculo():
 
-    patente_buscada = input("Ingrese la patente a buscar: ")
+    patente_buscada = input("Ingrese la patente a buscar: ").strip().upper()
+
+    while patente_buscada == "":
+        print("Error: la patente no puede estar vacía.")
+        patente_buscada = input("Ingrese nuevamente la patente: ").strip().upper()
 
     for i in range(len(patentes)):
 
