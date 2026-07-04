@@ -146,8 +146,12 @@ def mostrar_estadisticas():
 
 
 def mostrar_espacios():
-    print(f"Espacios disponibles: {espacios_disp}")
+    ocupados = CAPACIDAD - espacios_disp
 
+    print("\n===== ESPACIOS DEL ESTACIONAMIENTO =====")
+    print(f"Capacidad total: {CAPACIDAD}")
+    print(f"Espacios ocupados: {ocupados}")
+    print(f"Espacios disponibles: {espacios_disp}")
 
 # Función principal
 
