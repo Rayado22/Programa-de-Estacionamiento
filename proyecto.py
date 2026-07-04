@@ -107,7 +107,20 @@ def retirar_vehiculo():
 
 
 def mostrar_vehiculos():
-    pass
+    if len(patentes) == 0:
+        print("No hay vehículos estacionados.")
+        return
+
+    print("\n===== VEHÍCULOS ESTACIONADOS =====")
+
+    for i in range(len(patentes)):
+        print(f"Patente: {patentes[i]}")
+        print(f"Tipo: {tipos_vehiculos[i]}")
+        
+        # El formato :02d muestra la hora y los minutos con dos dígitos
+        print(f"Hora de ingreso: {horas_entrada[i]:02d}:{minutos_entrada[i]:02d}")
+
+        print("-----------------------------")
 
 
 def buscar_vehiculo():
