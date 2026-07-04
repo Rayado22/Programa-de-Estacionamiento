@@ -173,7 +173,12 @@ def main():
 
         mostrar_menu()
 
-        opcion = int(input("Seleccione una opción: "))
+        try:
+            opcion = int(input("Seleccione una opción: "))
+
+        except ValueError:
+            print("Error: debe ingresar un número.")
+            continue
 
         if opcion == 1:
             ingresar_vehiculo()
