@@ -103,7 +103,84 @@ def ingresar_vehiculo():
 
 
 def retirar_vehiculo():
-    pass
+    global espacios_disp
+    global total_recaudado
+
+    if len(patentes) == 0:
+        print("No hay vehículos registrados para retirar.")
+        return
+
+    patente = input("Ingrese la patente del vehículo a retirar: ")
+
+    posicion = -1
+
+    for i in range(len(patentes)):
+        if patentes[i] == patente:
+            posicion = i
+            break
+
+    if posicion == -1:
+        print("Error: la patente no está registrada.")
+        return
+
+    hora_salida = int(input("Ingrese la hora de salida: "))
+
+    while hora_salida < 0 or hora_salida > 23:
+        print("Hora inválida.")
+        hora_salida = int(input("Ingrese nuevamente la hora: "))
+
+    minuto_salida = int(input("Ingrese el minuto de salida: "))
+
+    while minuto_salida < 0 or minuto_salida > 59:
+        print("Minuto inválido.")
+        minuto_salida = int(input("Ingrese nuevamente el minuto: "))
+
+    hora_entrada = horas_entrada[posicion]
+    minuto_entrada = minutos_entrada[posicion]
+
+    minutos_entrada_total = hora_entrada * 60 + minuto_entrada
+    minutos_salida_total = hora_salida * 60 + minuto_salida
+
+    tiempo_permanencia = minutos_salida_total - minutos_entrada_total
+
+    if tiempo_permanencia <= 0:
+        print("Error: la hora de salida debe ser mayor que la hora de entrada.")
+        return
+
+    tipo = tipos_vehiculos[posicion]
+
+    if tipo == "Moto":
+        tarifa = TARIFA_MOTO
+    elif tipo == "Auto":
+        tarifa = TARIFA_AUTO
+    else:
+        tarifa = TARIFA_CAMION
+
+    horas_cobradas = tiempo_permanencia // 60
+
+    if tiempo_permanencia % 60 != 0:
+        horas_cobradas += 1
+
+    importe = horas_cobradas * tarifa
+
+    total_recaudado += importe
+    espacios_disp += 1
+
+    print("\n===== RETIRO DE VEHÍCULO =====")
+    print(f"Patente: {patentes[posicion]}")
+    print(f"Tipo: {tipo}")
+    print(f"Hora de entrada: {hora_entrada:02d}:{minuto_entrada:02d}")
+    print(f"Hora de salida: {hora_salida:02d}:{minuto_salida:02d}")
+    print(f"Tiempo de permanencia: {tiempo_permanencia} minutos")
+    print(f"Horas cobradas: {horas_cobradas}")
+    print(f"Importe a pagar: ${importe}")
+
+    patentes.pop(posicion)
+    tipos_vehiculos.pop(posicion)
+    horas_entrada.pop(posicion)
+    minutos_entrada.pop(posicion)
+
+    print("Vehículo retirado correctamente.")
 
 
 def mostrar_vehiculos():
@@ -134,7 +211,7 @@ def buscar_vehiculo():
             print("\nVehículo encontrado.")
             print(f"Patente: {patentes[i]}")
             print(f"Tipo: {tipos_vehiculos[i]}")
-            print(f"Hora de ingreso: {horas_entrada[i]}:{minutos_entrada[i]:02d}")
+            print(f"Hora de ingreso: {horas_entrada[i]:02d}:{minutos_entrada[i]:02d}")
 
             return
 
