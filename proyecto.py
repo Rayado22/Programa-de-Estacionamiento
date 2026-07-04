@@ -142,7 +142,17 @@ def buscar_vehiculo():
 
 
 def mostrar_estadisticas():
-    pass
+
+    print("\n===== ESTADÍSTICAS DEL ESTACIONAMIENTO =====")
+
+    print(f"Total recaudado: ${total_recaudado}")
+    print(f"Total de vehículos atendidos: {total_vehiculos_atendidos}")
+
+    print(f"Cantidad de motos: {cantidad_motos}")
+    print(f"Cantidad de autos: {cantidad_autos}")
+    print(f"Cantidad de camiones: {cantidad_camiones}")
+
+    print(f"Espacios disponibles: {espacios_disp}")
 
 
 def mostrar_espacios():
