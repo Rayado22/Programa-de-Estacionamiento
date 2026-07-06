@@ -82,18 +82,30 @@ def ingresar_vehiculo():
         print("Tipo de vehículo inválido.")
         return
 
-    hora = int(input("Ingrese la hora de ingreso: "))
+    while True:
+    try:
+        hora = int(input("Ingrese la hora de ingreso, sin minutos: "))
 
-    while hora < 0 or hora > 23:
-        print("Hora inválida.")
-        hora = int(input("Ingrese nuevamente la hora: "))
+        if hora < 0 or hora > 23:
+            print("Hora inválida. Debe estar entre 0 y 23.")
+        else:
+            break
 
-    minuto = int(input("Ingrese el minuto de ingreso: "))
+    except ValueError:
+        print("Error: ingrese primero la hora y luego los minutos. Ejemplo: hora 20 y después minuto 00.")
 
-    while minuto < 0 or minuto > 59:
-        print("Minuto inválido.")
-        minuto = int(input("Ingrese nuevamente el minuto: "))
 
+    while True:
+    try:
+        minuto = int(input("Ingrese el minuto de ingreso: "))
+
+        if minuto < 0 or minuto > 59:
+            print("Minuto inválido. Debe estar entre 0 y 59.")
+        else:
+            break
+
+    except ValueError:
+        print("Error: ingrese solo los minutos. Ejemplo: 00, 15, 30 o 45.")
     patentes.append(patente)
     tipos_vehiculos.append(tipo)
     horas_entrada.append(hora)
@@ -130,17 +142,30 @@ def retirar_vehiculo():
         print("Error: la patente no está registrada.")
         return
 
-    hora_salida = int(input("Ingrese la hora de salida: "))
+    while True:
+    try:
+        hora_salida = int(input("Ingrese la hora de salida, sin minutos: "))
 
-    while hora_salida < 0 or hora_salida > 23:
-        print("Hora inválida.")
-        hora_salida = int(input("Ingrese nuevamente la hora: "))
+        if hora_salida < 0 or hora_salida > 23:
+            print("Hora inválida. Debe estar entre 0 y 23.")
+        else:
+            break
 
-    minuto_salida = int(input("Ingrese el minuto de salida: "))
+    except ValueError:
+        print("Error: ingrese primero la hora y luego los minutos. Ejemplo: hora 20 y después minuto 00.")
 
-    while minuto_salida < 0 or minuto_salida > 59:
-        print("Minuto inválido.")
-        minuto_salida = int(input("Ingrese nuevamente el minuto: "))
+
+    while True:
+    try:
+        minuto_salida = int(input("Ingrese el minuto de salida: "))
+
+        if minuto_salida < 0 or minuto_salida > 59:
+            print("Minuto inválido. Debe estar entre 0 y 59.")
+        else:
+            break
+
+    except ValueError:
+        print("Error: ingrese solo los minutos. Ejemplo: 00, 15, 30 o 45.")
 
     hora_entrada = horas_entrada[posicion]
     minuto_entrada = minutos_entrada[posicion]
