@@ -24,14 +24,19 @@ El desarrollo del proyecto se realizó utilizando GitHub, registrando el proceso
 
 ## Uso de Inteligencia Artificial
 
-Se utilizó ChatGPT (OpenAI) como herramienta de apoyo durante el desarrollo del proyecto.
+Se utilizó ChatGPT de OpenAI como LLM de apoyo durante el desarrollo del proyecto.
 
 La inteligencia artificial fue utilizada para:
 
 - Resolver dudas sobre la sintaxis de Python.
-- Proponer la estructura general del programa.
 - Asistir en la implementación de funciones.
 - Ayudar en la detección y corrección de errores.
 - Explicar conceptos relacionados con listas, funciones, validaciones, estructuras repetitivas, estructuras condicionales y manejo básico de errores.
 
 Todas las respuestas obtenidas fueron analizadas, adaptadas e implementadas por los integrantes del grupo, quienes comprendieron la lógica, las validaciones y el funcionamiento general del sistema antes de incorporarlas al proyecto.
+
+## Instrucciones de ejecución
+
+1. Descargar o copiar el repositorio.
+2. Abrir una terminal en la carpeta del proyecto.
+3. Ejecutar el siguiente comando: python proyecto.py
